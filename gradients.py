@@ -408,33 +408,6 @@ def move_parameters(direction, mag, nom_pars, par_names = parameters):
     return new_pars
 
 
-def bind_alpha(d1, d2):
-    """
-    A function that serves to bind the possible values of alpha for the linear
-    combination
-      w = alpha*d1 + (1-alpha)+d2
-    in such a way that w has a degree of <= 90° with both d1 AND d2. This
-    ensures that the resulting direction goes into both surface curves, and not
-    into one and out of the other.
-
-    Input:
-    - d1: numpy array representing one of the directions
-    - d2: numpy array representing the other direction
-
-    Output:
-    - a: tuple. [0] is the lower bound, and [1] is the upper bound.
-    """
-    # Divide into two possible scenarios
-    if np.dot(d1, d2) < 0:
-        a1 = np.dot(d1, d2) / (np.dot(d1, d1) + np.dot(d1, d2))
-        a2 = np.dot(d2, d2) / (np.dot(d1, d2) + np.dot(d2, d2))
-        a = (min(a1, a2), max(a1, a2))
-    elif np.dot(d1, d2) > 0:
-        a = None
-
-    return a
-
-
 def combination_norm(coeff, directions):
     """
     A function that calculates the norm of the linear combination of the
