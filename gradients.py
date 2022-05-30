@@ -4,7 +4,7 @@ different gradients.
 
 Here, I define the functions to calculate the gradient to increase the distance
 between two equilibria (distance_gradient()) and to manipulate the eigenvalues
-of the different equilibria points.
+of the different equilibrium points.
 """
 
 import numpy as np
@@ -121,6 +121,8 @@ def F_n(state, parameters):
 sys_vars = "s e nf p"
 sys_pars = ("n k1 k2 k3 k4 k5 k6 k7 k8 k9 k10 k11 k12 k13 k14 k15 k16 a1 a2 a3"
             " a4 a5 a6 a7 a8 a9 a10 a11 bs be bn bp")
+# Parameter names must match keys from parameter dictionary
+
 s, e, nf, p = sym.symbols(sys_vars, real = True)
 n, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14, k15, k16, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, bs, be, bn, bp = sym.symbols(sys_pars, real = True)
 
